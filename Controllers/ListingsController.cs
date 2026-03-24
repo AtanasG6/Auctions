@@ -2,6 +2,7 @@
 using Auctions.Services;
 using Auctions.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Auctions.Controllers;
 
@@ -11,9 +12,10 @@ public class ListingsController(
     ) : Controller
 {
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var listings = await _listingsService.GetAll().ToListAsync();
+        return View(listings);
     }
 
     // GET: Listings/Create
