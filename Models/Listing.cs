@@ -13,10 +13,9 @@ public class Listing
     public bool IsSold { get; set; } = false;
 
     [Required]
-    public string UserId { get; set; }
-    public IdentityUser User { get; set; }
+    public string? UserId { get; set; }
+    public IdentityUser? User { get; set; }
 
     public List<Bid>? Bids { get; set; }
-
     public List<Comment>? Comments { get; set; }
 }
