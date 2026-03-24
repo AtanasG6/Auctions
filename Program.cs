@@ -1,4 +1,5 @@
 using Auctions.Data;
+using Auctions.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IListingsService, ListingsService>();
 
 var app = builder.Build();
 
